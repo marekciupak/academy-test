@@ -11,6 +11,17 @@ feature 'User index page', :devise do
     Warden.test_reset!
   end
 
+  # Scenario: Visit index page
+  #   Given I am signed in
+  #   When I visit /all_users
+  #   Then I see index page
+  scenario 'user sees index page' do
+    user = FactoryGirl.create(:user)
+    login_as(user, scope: :user)
+    visit '/all_users'
+    expect(page.current_path).to eq users_path
+  end
+
   # Scenario: User listed on index page
   #   Given I am signed in
   #   When I visit the user index page
