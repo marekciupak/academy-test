@@ -1,0 +1,1 @@
+@alert_window = (name) -> alert "Hey, " + name + "!"
