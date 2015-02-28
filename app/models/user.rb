@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   belongs_to :city
 
-  validates_presence_of :city
+  validates_presence_of :city unless @city_id.blank?
 end
